@@ -4,7 +4,7 @@ import './EditHoliday.scss';
 class EditHoliday extends React.Component {
   render() {
     return (
-      <div className='editHoliday'>
+      <div className="editHoliday mx-auto">
         <h3>Edit Holiday Page</h3>
       </div>
     );

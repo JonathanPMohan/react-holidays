@@ -61,16 +61,20 @@ class App extends React.Component {
     this.removeListener();
   }
 
-  isAuthenticated = () => {
-    this.setState({ authed: true });
-  }
-
   render() {
-    const { authed } = this.state;
+    const {
+      authed,
+      pendingUser,
+    } = this.state;
+
     const logoutClickEvent = () => {
       authRequests.logoutUser();
       this.setState({ authed: false });
     };
+
+    if (pendingUser) {
+      return null;
+    }
 
     return (
       <div className="App">
@@ -87,7 +91,11 @@ class App extends React.Component {
                   <PrivateRoute path='/holidays' component={Holidays} authed={this.state.authed} />
                   <PrivateRoute path='/holidays/new' component={NewHoliday} authed={this.state.authed} />
                   <PrivateRoute path='/friends/:id/edit' component={EditFriend} authed={this.state.authed} />
-                  <PrivateRoute path='/holidays/:id' component={HolidayDetail} authed={this.state.authed} />
+                  <PrivateRoute
+                    path="/holidays/:id"
+                    authed={this.state.authed}
+                    component={HolidayDetail}
+                  />
                   <PrivateRoute path='/holidays/:id/edit' component={EditHoliday} authed={this.state.authed} />
                   <PrivateRoute path='/holidays/:id/friends' component={HolidayFriends} authed={this.state.authed} />
                   <PublicRoute path='/auth' component={Auth} authed={this.state.authed} />
