@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { NavLink as RRNavLink } from 'react-router-dom';
 import {
   Collapse,
   Navbar,
@@ -29,17 +30,39 @@ class MyNavbar extends React.Component {
 
   render() {
     const { isAuthed, logoutClickEvent } = this.props;
+    const buildNavbar = () => {
+      if (isAuthed) {
+        return (
+          <Nav className='ml-auto' navbar>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/friends'>FRIENDS
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/friends/new'>NEW FRIEND</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/holidays'>HOLIDAYS</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink tag={RRNavLink} to='/holidays/new'>NEW HOLIDAY</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink onClick={logoutClickEvent}><i className="fas fa-sign-out-alt fa-3x"></i></NavLink>
+            </NavItem>
+          </Nav>
+        );
+      }
+      return <Nav className='ml-auto' navbar />;
+    };
+
     return (
       <div className="my-navbar">
         <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/">React Holidays</NavbarBrand>
           <NavbarToggler onClick={e => this.toggle(e)} />
           <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                {isAuthed ? <NavLink onClick={logoutClickEvent}>Logout</NavLink> : ''}
-              </NavItem>
-            </Nav>
+            {buildNavbar()}
           </Collapse>
         </Navbar>
       </div>
