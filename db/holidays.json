@@ -1,0 +1,34 @@
+{
+  "holiday1": {
+    "name": "Crimbus",
+    "Date": "12/25/19",
+    "imageUrl": "http://michaelshuemaker.com/blog/new/funny-santa-claus-pictures-6.jpg",
+    "location": "Santa's Workshop",
+    "startTime": "All Day",
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "holiday2": {
+    "name": "Lebowski Fest",
+    "Date": "03/28/19",
+    "imageUrl": "http://www.morbidlyamusing.com/wp-content/uploads/2013/09/lebowski-7287111.jpg",
+    "location": "Louisville, KY",
+    "startTime": "noon",
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "holiday3": {
+    "name": "Super Bowl",
+    "Date": "2/3/19",
+    "imageUrl": "https://n7jmr7muhj-flywheel.netdna-ssl.com/wp-content/uploads/2014/06/National-Bourbon-Day-June-14-1024x512.jpg",
+    "location": "Atlanta, GA",
+    "startTime": "5:30pm",
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "holiday4": {
+    "name": "Avengers 4",
+    "Date": "5/2/19",
+    "imageUrl": "https://cdn.movieweb.com/img.news.tops/NENYwW3DolbkRN_1_a/Avengers-4-Trailer-Release-Date-Plans-Details.jpg",
+    "location": "AMC Bellevue, TN",
+    "startTime": "Midnight",
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "friend1": {
+    "name": "Jonathan Mohan",
+    "address": "100 Allendale Dr, Nashville, TN 37209",
+    "phoneNumber": "5555555555",
+    "email": "jonathanmohan.net@gmail.com",
+    "relationship": "the voice in my head",
+    "isAvoiding": true,
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "friend2": {
+    "name": "Joe Denes.",
+    "address": "1111 Fancy Dr, Nashville, TN 37456",
+    "phoneNumber": "5555555555",
+    "email": "jDenes0088@gmail.com",
+    "relationship": "parole officer",
+    "isAvoiding": false,
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "friend3": {
+    "name": "Tori Spelling",
+    "address": "Beverly Hills, Ca, 90210",
+    "phoneNumber": "5555555555",
+    "email": "tSpellingLOL@gmail.com",
+    "relationship": "shopping partner",
+    "isAvoiding": false,
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "friend4": {
+    "name": "Big Timmy Tommy.",
+    "address": "145 Back Alley Dr, Portland, Oregon 76316",
+    "phoneNumber": "5555555555",
+    "email": "timmmmyyyyyyy@gmail.com",
+    "relationship": "rival",
+    "isAvoiding": false,
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  },
+  "friend5": {
+    "name": "Kurt Loader",
+    "address": "856 MTV blvd, New York, NY 56376",
+    "phoneNumber": "5555555555",
+    "email": "IwasKurtLoaderIPromise334@gmail.com",
+    "relationship": "News Anchor",
+    "isAvoiding": false,
+    "uid": "20wGgdMY31RuQuGmsq7FD5Znk1G3"
+  }
+}
