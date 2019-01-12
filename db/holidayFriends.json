@@ -1,0 +1,18 @@
+{
+  "holidayFriend1": {
+    "holidayId": "holiday1",
+    "friendId": "friend99"
+  },
+  "holidayFriend2": {
+    "holidayId": "holiday1",
+    "friendId": "friend98"
+  },
+  "holidayFriend3": {
+    "holidayId": "holiday1",
+    "friendId": "friend97"
+  },
+  "holidayFriend4": {
+    "holidayId": "holiday2",
+    "friendId": "friend99"
+  }
+}
