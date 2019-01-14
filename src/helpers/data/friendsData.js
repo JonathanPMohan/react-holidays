@@ -3,18 +3,18 @@ import apiKeys from '../apiKeys';
 
 const firebaseUrl = apiKeys.firebaseConfig.databaseURL;
 
-const getAllFriends = uid => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/friends.json?orderBy="uid"&equalTo="${uid}"`)
-    .then((results) => {
-      const friendsObject = results.data;
-      const friendsArray = [];
-      if (friendsObject !== null) {
-        Object.keys(friendsObject).forEach((friendId) => {
-          friendsObject[friendId].id = friendId;
-          friendsArray.push(friendsObject[friendId]);
+const getAllFriends = () => new Promise((resolve, reject) => {
+  axios.get(`${firebaseUrl}/friends.json`)
+    .then((result) => {
+      const friendObject = result.data;
+      const friendArray = [];
+      if (friendObject != null) {
+        Object.keys(friendObject).forEach((friendId) => {
+          friendObject[friendId].id = friendId;
+          friendArray.push(friendObject[friendId]);
         });
       }
-      resolve(friendsArray);
+      resolve(friendArray);
     })
     .catch((error) => {
       reject(error);
