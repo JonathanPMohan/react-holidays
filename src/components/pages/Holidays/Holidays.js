@@ -1,17 +1,44 @@
 import React from 'react';
+import holidaysData from '../../../helpers/data/holidaysData';
+import authRequests from '../../../helpers/data/authRequests';
+import PrintHolidayCard from '../../PrintHolidayCard/PrintHolidayCard';
 import './Holidays.scss';
-import { Button } from 'reactstrap';
+
 
 class Holidays extends React.Component {
-  holidayDetailsView = (e) => {
-    const holidayId = e.target.id;
-    this.props.history.push(`/holidays/${holidayId}`);
+  state = {
+    holidays: [],
+  }
+
+  getHolidays = () => {
+    const uid = authRequests.getCurrentUid();
+    holidaysData.getAllHolidays(uid)
+      .then((holidays) => {
+        this.setState({ holidays });
+      })
+      .catch((err) => {
+        console.error('error with holiday GET', err);
+      });
+  };
+
+  componentDidMount() {
+    this.getHolidays();
   }
 
   render() {
+    const holidaysCards = this.state.holidays.map(holiday => (
+      <PrintHolidayCard
+        key={holiday.id}
+        holiday={holiday}
+      />
+    ));
     return (
       <div className="holidays mx-auto">
-        <Button className="btn btn-secondary mt-5" id="holidayDetails" onClick={this.holidayDetailsView}>Holiday Details</Button>
+        <h2>Holidays</h2>
+        <button className="btn btn-secondary">
+          <i className="fas fa-plus">Add A Holiday</i>
+        </button>
+        <div className="row justify-content-center">{holidaysCards}</div>
       </div>
     );
   }
