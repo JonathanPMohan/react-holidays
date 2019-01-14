@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'reactstrap';
 import holidaysData from '../../../helpers/data/holidaysData';
 import authRequests from '../../../helpers/data/authRequests';
 import PrintHolidayCard from '../../PrintHolidayCard/PrintHolidayCard';
@@ -25,6 +26,10 @@ class Holidays extends React.Component {
     this.getHolidays();
   }
 
+  newHolidayView = () => {
+    this.props.history.push('/holidays/new');
+  }
+
   render() {
     const holidaysCards = this.state.holidays.map(holiday => (
       <PrintHolidayCard
@@ -35,9 +40,7 @@ class Holidays extends React.Component {
     return (
       <div className="holidays mx-auto">
         <h2>Holidays</h2>
-        <button className="btn btn-secondary">
-          <i className="fas fa-plus">Add A Holiday</i>
-        </button>
+        <Button className="btn btn-secondary mt-5" id="addHoliday" onClick={this.newHolidayView}>Add Holiday</Button>
         <div className="row justify-content-center">{holidaysCards}</div>
       </div>
     );
