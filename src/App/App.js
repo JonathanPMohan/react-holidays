@@ -16,9 +16,10 @@ import EditFriend from '../components/pages/EditFriend/EditFriend';
 import HolidayDetail from '../components/pages/HolidayDetail/HolidayDetail';
 import EditHoliday from '../components/pages/EditHoliday/EditHoliday';
 import HolidayFriends from '../components/pages/HolidayFriends/HolidayFriends';
-import MyNavBar from '../components/MyNavbar/MyNavbar';
-import './App.scss';
 import authRequests from '../helpers/data/authRequests';
+import MyNavBar from '../components/MyNavbar/MyNavbar';
+
+import './App.scss';
 
 const PublicRoute = ({ component: Component, authed, ...rest }) => {
   const routeChecker = props => (authed === false
@@ -42,6 +43,7 @@ class App extends React.Component {
 
   componentDidMount() {
     connection();
+
     this.removeListener = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -85,17 +87,12 @@ class App extends React.Component {
               <div className='row'>
                 <Switch>
                   <PrivateRoute path='/' exact component={Home} authed={this.state.authed} />
-                  <PrivateRoute path='/home' component={Home} authed={this.state.authed} />
-                  <PrivateRoute path='/friends' component={Friends} authed={this.state.authed} />
-                  <PrivateRoute path='/friends/new' component={NewFriend} authed={this.state.authed} />
-                  <PrivateRoute path='/holidays' component={Holidays} authed={this.state.authed} />
-                  <PrivateRoute path='/holidays/new' component={NewHoliday} authed={this.state.authed} />
+                  <PrivateRoute exact path='/friends' component={Friends} authed={this.state.authed} />
                   <PrivateRoute path='/friends/:id/edit' component={EditFriend} authed={this.state.authed} />
-                  <PrivateRoute
-                    path="/holidays/:id"
-                    authed={this.state.authed}
-                    component={HolidayDetail}
-                  />
+                  <PrivateRoute exact path='/friends/new' component={NewFriend} authed={this.state.authed} />
+                  <PrivateRoute exact path='/holidays' component={Holidays} authed={this.state.authed} />
+                  <PrivateRoute path='/holidays/new' component={NewHoliday} authed={this.state.authed} />
+                  <PrivateRoute exact path='/holidays/:id' component={HolidayDetail} authed={this.state.authed} />
                   <PrivateRoute path='/holidays/:id/edit' component={EditHoliday} authed={this.state.authed} />
                   <PrivateRoute path='/holidays/:id/friends' component={HolidayFriends} authed={this.state.authed} />
                   <PublicRoute path='/auth' component={Auth} authed={this.state.authed} />
