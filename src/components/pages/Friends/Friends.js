@@ -25,9 +25,8 @@ class Friends extends React.Component {
     this.getFriends();
   }
 
-  changeView = (e) => {
-    const friendId = e.target.id;
-    this.props.history.push(`/friends/${friendId}/edit`);
+  newFriendView = () => {
+    this.props.history.push('/friends/new');
   }
 
   render() {
@@ -40,8 +39,8 @@ class Friends extends React.Component {
     return (
       <div className="friends mx-auto">
         <h2>Friends</h2>
+        <Button className="btn btn-secondary mt-5" id="editFriend" onClick={this.newFriendView}>Add Friend</Button>
         <div className="row justify-content-center">{printFriend}</div>
-        <Button className="btn btn-secondary mt-5" id="editFriend" onClick={this.changeView}>Edit Friend</Button>
       </div>
     );
   }
