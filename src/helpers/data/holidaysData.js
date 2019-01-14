@@ -4,7 +4,7 @@ import apiKeys from '../apiKeys';
 const firebaseUrl = apiKeys.firebaseConfig.databaseURL;
 
 const getAllHolidays = uid => new Promise((resolve, reject) => {
-  axios.get(`${firebaseUrl}/holidays.json?orderBy="uid"&equalTo="${uid}"`)
+  axios.get(`${firebaseUrl}/holidays.json`)
     .then((results) => {
       const friendsObject = results.data;
       const friendsArray = [];
