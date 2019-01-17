@@ -27,8 +27,10 @@ class Holidays extends React.Component {
   }
 
   deleteSingleHoliday = (holidayId) => {
-    holidaysData.deleteHoliday(holidayId);
-    this.getHolidays();
+    holidaysData.deleteHoliday(holidayId)
+      .then(() => {
+        this.getHolidays();
+      });
   }
 
   newHolidayView = () => {
