@@ -137,7 +137,7 @@ class NewFriend extends React.Component {
               <input type="checkbox" className="custom-control-input" id="customCheck1" />
               <label className="custom-control-label" htmlFor="customCheck1">Am I avoiding this person?</label>
             </div>
-            <Button className="btn btn-success mt-3" onSubmit={this.formSubmit}>
+            <Button className="btn btn-secondary mt-3" onSubmit={this.formSubmit}>
               Submit New Friend
             </Button>
           </form>
