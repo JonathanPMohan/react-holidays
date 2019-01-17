@@ -21,6 +21,7 @@ const getAllHolidays = uid => new Promise((resolve, reject) => {
     });
 });
 
+const createHoliday = holidayObject => axios.post(`${firebaseUrl}/holidays.json`, JSON.stringify(holidayObject));
 const deleteHoliday = holidayId => axios.delete(`${firebaseUrl}/holidays/${holidayId}.json`);
 
-export default { getAllHolidays, deleteHoliday };
+export default { getAllHolidays, deleteHoliday, createHoliday };
