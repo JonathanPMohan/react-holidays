@@ -25,6 +25,11 @@ class Friends extends React.Component {
     this.getFriends();
   }
 
+  deleteSingleFriend = (friendId) => {
+    friendsData.deleteFriend(friendId);
+    this.getFriends();
+  }
+
   newFriendView = () => {
     this.props.history.push('/friends/new');
   }
@@ -34,12 +39,13 @@ class Friends extends React.Component {
       <PrintFriendCard
         key={friend.id}
         friend={friend}
+        deleteSingleFriend={this.deleteSingleFriend}
       />
     ));
     return (
       <div className="friends mx-auto">
         <h2>Friends</h2>
-        <Button className="btn btn-secondary mt-5" id="editFriend" onClick={this.newFriendView}>Add Friend</Button>
+        <Button className="btn btn-secondary mt-5" id="newFriend" onClick={this.newFriendView}>Add Friend</Button>
         <div className="row justify-content-center">{printFriend}</div>
       </div>
     );
