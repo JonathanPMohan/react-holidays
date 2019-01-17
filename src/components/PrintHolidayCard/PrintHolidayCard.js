@@ -1,12 +1,17 @@
 import React from 'react';
-// import holidayShape from '../../helpers/propz/holidayShape';
-
+import PropTypes from 'prop-types';
 import './PrintHolidayCard.scss';
 import authRequests from '../../helpers/data/authRequests';
 
 class PrintHolidayCard extends React.Component {
   static propTypes = {
-    // holiday: holidayShape.holidayShape,
+    deleteSingleHoliday: PropTypes.func,
+  }
+
+  deleteEvent = (e) => {
+    e.preventDefault();
+    const { deleteSingleHoliday, holiday } = this.props;
+    deleteSingleHoliday(holiday.id);
   }
 
   holidayClick = (e) => {
@@ -23,13 +28,13 @@ class PrintHolidayCard extends React.Component {
       if (holiday.uid === uid) {
         return (
           <div>
-            <span className="col">
+            <span className="col-1">
               <button className="btn btn-secondary">
                 <i className="fas fa-pencil-alt"></i>
               </button>
             </span>
-            <span className="col">
-              <button className="btn btn-secondary">
+            <span className="col-1">
+              <button className="btn btn-secondary" onClick={this.deleteEvent}>
                 <i className="fas fa-trash-alt"></i>
               </button>
             </span>
