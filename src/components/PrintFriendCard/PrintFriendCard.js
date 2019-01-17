@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import friendShape from '../../helpers/propz/friendShape';
 import authRequests from '../../helpers/data/authRequests';
 
@@ -7,12 +8,13 @@ import './PrintFriendCard.scss';
 class PrintFriendCard extends React.Component {
   static propTypes = {
     friend: friendShape.friendShape,
+    deleteSingleFriend: PropTypes.func,
   }
 
-  friendClick = (e) => {
-    e.stopPropagation();
-    const { friend, onSelect } = this.props;
-    onSelect(friend.id);
+  deleteEvent = (e) => {
+    e.preventDefault();
+    const { deleteSingleFriend, friend } = this.props;
+    deleteSingleFriend(friend.id);
   }
 
   render() {
@@ -29,7 +31,7 @@ class PrintFriendCard extends React.Component {
               </button>
             </span>
             <span className="col">
-              <button className="btn btn-secondary">
+              <button className="btn btn-secondary" onClick={this.deleteEvent}>
                 <i className="fas fa-trash-alt"></i>
               </button>
             </span>
