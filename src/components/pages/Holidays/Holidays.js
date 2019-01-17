@@ -26,6 +26,11 @@ class Holidays extends React.Component {
     this.getHolidays();
   }
 
+  deleteSingleHoliday = (holidayId) => {
+    holidaysData.deleteHoliday(holidayId);
+    this.getHolidays();
+  }
+
   newHolidayView = () => {
     this.props.history.push('/holidays/new');
   }
@@ -35,6 +40,7 @@ class Holidays extends React.Component {
       <PrintHolidayCard
         key={holiday.id}
         holiday={holiday}
+        deleteSingleHoliday={this.deleteSingleHoliday}
       />
     ));
     return (
