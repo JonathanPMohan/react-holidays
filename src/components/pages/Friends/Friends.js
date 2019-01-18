@@ -36,14 +36,21 @@ class Friends extends React.Component {
     this.props.history.push('/friends/new');
   }
 
+  passFriendToEdit = (friendId) => {
+    this.setState({ editId: friendId });
+    this.props.history.push(`/friends/${friendId}/edit`);
+  }
+
   render() {
     const printFriend = this.state.friends.map(friend => (
       <PrintFriendCard
         key={friend.id}
         friend={friend}
         deleteSingleFriend={this.deleteSingleFriend}
+        passFriendToEdit={this.passFriendToEdit}
       />
     ));
+
     return (
       <div className="friends mx-auto">
         <h2>Friends</h2>
