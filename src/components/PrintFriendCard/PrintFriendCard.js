@@ -17,6 +17,12 @@ class PrintFriendCard extends React.Component {
     deleteSingleFriend(friend.id);
   }
 
+  editEvent = (e) => {
+    e.preventDefault();
+    const { passFriendToEdit, friend } = this.props;
+    passFriendToEdit(friend.id);
+  }
+
   render() {
     const { friend } = this.props;
     const uid = authRequests.getCurrentUid();
@@ -26,7 +32,7 @@ class PrintFriendCard extends React.Component {
         return (
           <div>
             <span className="col">
-              <button className="btn btn-secondary">
+              <button className="btn btn-secondary" onClick={this.editEvent}>
                 <i className="fas fa-pencil-alt"></i>
               </button>
             </span>

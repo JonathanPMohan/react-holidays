@@ -47,8 +47,8 @@ class NewFriend extends React.Component {
   }
 
   checkEvent = (e) => {
-    const isDone = e.target.checked;
-    this.setState({ checkValue: isDone });
+    const isAvoiding = e.target.checked;
+    this.setState({ checkValue: isAvoiding });
   }
 
   addFriend = (newFriend) => {
@@ -137,7 +137,7 @@ class NewFriend extends React.Component {
             </div>
             <div className="custom-control custom-checkbox" onChange={this.checkEvent}>
               <input type="checkbox" className="custom-control-input" id="customCheck1" />
-              <label className="custom-control-label" htmlFor="customCheck1">Am I avoiding this person?</label>
+              <label className="custom-control-label" htmlFor="customCheck1">Avoiding?</label>
             </div>
             <Button className="btn btn-secondary mt-3" onSubmit={this.formSubmit}>
               Submit New Friend
