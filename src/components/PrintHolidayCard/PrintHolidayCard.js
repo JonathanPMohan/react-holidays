@@ -1,17 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import holidayShape from '../../helpers/propz/holidayShape';
 import './PrintHolidayCard.scss';
 import authRequests from '../../helpers/data/authRequests';
 
 class PrintHolidayCard extends React.Component {
   static propTypes = {
+    holiday: holidayShape.holidayShape,
     deleteSingleHoliday: PropTypes.func,
+    passHolidayToEdit: PropTypes.func,
   }
 
   deleteEvent = (e) => {
     e.preventDefault();
     const { deleteSingleHoliday, holiday } = this.props;
     deleteSingleHoliday(holiday.id);
+  }
+
+  editEvent = (e) => {
+    e.preventDefault();
+    const { passHolidayToEdit, holiday } = this.props;
+    passHolidayToEdit(holiday.id);
   }
 
   holidayClick = (e) => {
@@ -29,7 +38,7 @@ class PrintHolidayCard extends React.Component {
         return (
           <div>
             <span className="col-1">
-              <button className="btn btn-secondary">
+              <button className="btn btn-secondary" onClick={this.editEvent}>
                 <i className="fas fa-pencil-alt"></i>
               </button>
             </span>
@@ -48,7 +57,7 @@ class PrintHolidayCard extends React.Component {
         <h5 className="card-header">{holiday.name}</h5>
         <div className="card-body">
           <img className="card-img-top" src={holiday.imageUrl} alt={holiday.name} />
-          <p className="card-text">{holiday.Date}</p>
+          <p className="card-text">{holiday.date}</p>
           <p className="card-text">{holiday.location}</p>
           <p className="card-text">{holiday.startTime}</p>
           {makeButtons()}

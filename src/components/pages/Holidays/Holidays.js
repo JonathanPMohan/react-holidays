@@ -33,6 +33,11 @@ class Holidays extends React.Component {
       });
   }
 
+  passHolidayToEdit = (holidayId) => {
+    this.setState({ editId: holidayId });
+    this.props.history.push(`/holidays/${holidayId}/edit`);
+  }
+
   newHolidayView = () => {
     this.props.history.push('/holidays/new');
   }
@@ -43,6 +48,7 @@ class Holidays extends React.Component {
         key={holiday.id}
         holiday={holiday}
         deleteSingleHoliday={this.deleteSingleHoliday}
+        passHolidayToEdit={this.passHolidayToEdit}
       />
     ));
     return (

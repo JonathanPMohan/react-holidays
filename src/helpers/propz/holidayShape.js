@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 const holidayShape = PropTypes.shape({
   name: PropTypes.string.isRequired,
-  Date: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
   imgageUrl: PropTypes.string.isRequired,
   location: PropTypes.string.isRequired,
   startTime: PropTypes.string.isRequired,
